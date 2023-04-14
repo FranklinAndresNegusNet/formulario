@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Order Form</title>
+
+</head>
+<body>
+    <header>
+        <h1>Order Form</h1>
+    </header>
+    <main>
+        <form id="orderForm" name="order" method="post" action="/submit" aria-labelledby="orderFormHeader">
+            <div id="orderFormHeader" class="sr-only">Order Form</div>
+
+            <!--agrega aqui las secciones de tu formulario-->
+            <fieldset>
+                <legend>Contact Details</legend>
+                <ul>
+                    <li>
+                        <label class="required">
+                            <div>Full Name</div>
+                            <input name="name" required autofocus>
+                        </label>
+                    </li>
+
+                    <li>
+                        <label class="required">
+                            <div>Email Address</div>
+                            <input type="email" name="email" required>
+                        </label>
+                    </li>
+
+                    <li>
+                        <label aria-label="Postal Address">
+                            <div>Postal Address</div>
+                            <input name="address1" placeholder="Address line 1">
+                        </label>  
+                        <div>&nbsp;</div>
+                        <input name="address2" placeholder="Address line 2">
+                        <div>&nbsp;</div>
+                        <input name="city" class="city" placeholder="Tom/city">
+                        <input name="state" class="state" placeholder="State">
+                        <input name="zip" class="zip" placeholder="Zip Code">
+                        <div>&nbsp;</div>
+                        <select name="country">
+                            <option value="0">Country</option>
+                            <option value="US">UNited States</option>
+                            <option value="CA">Canada</option>
+                        </select>
+                    </li>
+
+                    <li>
+                        <label aria-label="Home Phone Number">
+                            <div>Home Phone No.</div>
+                            <input type="tel" name="homephone">
+                        </label>                        
+                    </li>
+
+                    <li>
+                        <label aria-label="Cell Phone Number">
+                            <div>Cell Phone No.</div>
+                            <input type="tel" name="cellphone">
+                        </label>
+                    </li>
+                    
+                    <li>
+                        <label aria-label="Skype Name">
+                            <div>Skype Name</div>
+                            <input name="skype">
+                        </label>                        
+                    </li>
+
+                    <label aria-label="Twitter">
+                        <div>Twitter</div>
+                        <span class="twitter_profix"></span>
+                        <input name="twitter" class="twitter">
+                    </label>
+                </ul>
+            </fieldset>
+
+            <fieldset aria-labelledby="login-details">
+                <legend id="login-details">Login Details</legend>
+                <ul>
+                    <li>
+                        <label class="required">
+                            <div>Password</div>
+                            <input type="password" name="password" requiered aria-describedby="password-description">
+                        </label>                        
+                    </li>
+                    <li>
+                        <label class="required">
+                            <div>Confirm Password</div>
+                            <input type="password" name="confirm_password" required aria-describedby="password-description">
+                        </label>                        
+                    </li>
+                </ul>
+            </fieldset> 
+            
+            <!--ORDER DETAILS-->
+            <fieldset aria-labelledby="order-details">
+                <legend id="order-details">Order Details</legend>
+                <table aria-labelledby="table">
+                    <thread>
+                        <tr>
+                            <th>Product Code</th>
+                            <th>Description</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                        <tr>
+                            <td>
+                                COMPOO1
+                                <input type="hidden" name="product_code" value="COMPOO1">
+                            </td>
+                            <td>THe Ultimate Smartphone</td>
+                            <td>
+                                <input type="number" data-price="399.99" name="quantity" value="0" min="0" max="99" maxlength="2" aria-describedby="quantity-description" aria-labelledby="product-code-label">
+                            </td>
+                            <td>$399.99</td>
+                            <td>
+                                <output name="item_total" class="item_total" aria-live="polite" aria-atomic="true" aria-describedby="item-total-description">$0.00</output>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                COMPOO2
+                                <input type="hidden" name="product_code" value="COMPOO2">
+                            </td>
+                            <td>The Ultimate Tablet</td>
+                            <td>
+                                <input type="number" data-price="499.99" name="quantity" value="0" min="0" max="99" maxlength="2" aria-describedby="quantity-description"
+                                aria-labelledby="product-code-label">
+                            </td>
+                            <td>$499.99</td>
+                            <td>
+                                <output name="item-total" class="item_total" aria-live="polite" aria-atomic="true" aria-describedby="item-total-description">0.00</output>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                COMPOO3
+                                <input type="hidden" name="product_code" value="COMPOO3">
+                            </td>
+                            <td>The Ultimate Netbook</td>
+                            <td>
+                                <input type="number" data-price="299.99" name="quantity" value="0" max="99" maxlength="2" aria-describedby="quantity-description" aria-labelledby="product-code-label">
+                            </td>
+                            <td>$299.99</td>
+                            <td>
+                                <output name="item_total" class="item_total" aria-live="polite" aria-atomic="true" aria-describedby="item-total-description">$0.00</output>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">Orden Total</td>
+                            <td>
+                                <output name="order_total" id="order_total" aria-live="polite" aria-atomic="true" aria-describedby="order-total-description">$0.00</output>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>Payment Details</legend>
+                <ul>
+                    <li>
+                        <label class="required">
+                            <div>Name on Card</div>
+                        <input name="card_name" required aria-label="Name on Card">
+                        </label>                        
+                    </li>
+                    <li>
+                        <label class="required">
+                            <div>Credit Card</div>
+                            <input name="card_number" pattern="[0-9]{13,16}" maxlength="16" required title="13-16 digits, no spaces" aria-label="Credit Card Number">
+                        </label>                        
+                    </li>
+
+                    <li>
+                        <label class="required">
+                            <div>Expire Date</div>
+                            <input type="month" name="card_expiry" maxlength="7" placeholder="YYYY-MM" required value="2015-06" aria-label="Expire Date">
+                        </label>
+                    </li
+                    >
+
+                    <li>
+                        <label class="required">
+                            <div>CVV2 No.</div>
+                            <input name="card_cvv2" class="cvv" maxlength="3" pattern="[0-9]{3}" required title="exactly 3 digits" aria-label="CVV2 Number">
+                            <span>(Three digit code at back of card)</span>
+                        </label>
+                    </li>
+                </ul>
+            </fieldset>
+
+            <div class="buttons">
+                <button type="submit" aria-label="Submit Order">Submit Order</button>
+                <button type="button" id="saveOrder" aria-label="Save Order">Save Order</button>
+            </div>
+        </form>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
